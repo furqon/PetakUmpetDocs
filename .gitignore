@@ -1,3 +1,5 @@
 config/Config.php
-lib/PetakUmpet/
-app/frontend/res/log/app.log
+*.log
+*.tar.*
+*.sublime*
+web/uploads/*
