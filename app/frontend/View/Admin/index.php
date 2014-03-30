@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <div class="container">
-    <h1>About</h1>
+    <h1>Settings Menu</h1>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -12,11 +12,10 @@
     </p>
   </div>
 </div>
-
 <div class="container">
 <div class="row">
   <div class="col-md-4">
-    <h2>Heading</h2>
+    <h2>User</h2>
     <p>Donec id elit non mi porta gravida at eget metus. 
       Fusce dapibus, tellus ac cursus commodo, tortor 
       mauris condimentum nibh, ut fermentum massa justo 
@@ -25,7 +24,7 @@
     </p>
   </div>
   <div class="col-md-4">
-    <h2>Heading</h2>
+    <h2>Role</h2>
     <p>Donec id elit non mi porta gravida at eget metus. 
       Fusce dapibus, tellus ac cursus commodo, tortor 
       mauris condimentum nibh, ut fermentum massa justo 
@@ -34,7 +33,7 @@
     </p>
   </div>
   <div class="col-md-4">
-    <h2>Heading</h2>
+    <h2>Access</h2>
     <p>Donec id elit non mi porta gravida at eget metus. 
       Fusce dapibus, tellus ac cursus commodo, tortor 
       mauris condimentum nibh, ut fermentum massa justo 
@@ -42,5 +41,4 @@
       mollis euismod. Donec sed odio dui. 
     </p>
   </div>
-  
 </div>
