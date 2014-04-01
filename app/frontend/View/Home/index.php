@@ -39,14 +39,12 @@
       return $this->render(array('target'=>'Indonesia!'));
     }
   }
-    </pre>
+?&gt;
 
-    <pre class="prettyprint">
 &lt;!-- HTML View Code --&gt;
 &lt;p&gt;Hello, &lt;?php echo $target; ?&gt; &lt;/p&gt;
-    </pre>
-    <pre class="prettyprint">
-    // Browser output
+
+&lt;!-- Browser Output --&gt;
     Hello, Indonesia!
     </pre>
     </div>
