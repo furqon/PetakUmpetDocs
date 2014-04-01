@@ -10,7 +10,7 @@
     </p>
     <p><h3>Open Source</h3>
     Petak Umpet is Open-Source software, we welcome everyone to contribute to its development. 
-    Please contact us <a href="mailto:arief.utama@gmail.com">via mail</a> for pull requests.
+    Please contact us <a href="mailto:ahmad.furqon@gmail.com">via mail</a> for pull requests.
     </p>
   </div>
 </div>
