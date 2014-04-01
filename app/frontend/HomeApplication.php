@@ -12,9 +12,8 @@ class HomeApplication extends Application {
     return $this->render();
   }
 
-  public function aboutAction()
+  public function startedAction()
   {
-    $this->request->setSubNavMenu(false);
     return $this->render();
   }
 
@@ -22,4 +21,15 @@ class HomeApplication extends Application {
   {
     return $this->render();
   }
+
+  public function documentationAction()
+  {
+    return $this->render();
+  }
+
+  public function supportAction()
+  {
+    return $this->render();
+  }  
+
 }
