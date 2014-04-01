@@ -90,7 +90,8 @@
       <hr/>
     <div class="container">
       <footer>
-        Copyright &copy; <?php echo date('Y') ; ?> - Life2play Labs 
+        <p>Copyright &copy; <?php echo date('Y') ; ?> - Life2play Labs</p>
+        <p class="small">Interested in donating to the project? Please contact <strong><a href="mailto:ahmad.furqon@gmail.com">us</a></strong>.</p>
       </footer>
     </div>
     <script src="<?php echo $T->getResourceUrl('js/jquery.form.js') ?>"></script>
