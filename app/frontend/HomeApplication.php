@@ -17,4 +17,9 @@ class HomeApplication extends Application {
     $this->request->setSubNavMenu(false);
     return $this->render();
   }
+
+  public function downloadAction()
+  {
+    return $this->render();
+  }
 }
