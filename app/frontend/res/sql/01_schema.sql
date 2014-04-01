@@ -1,5 +1,5 @@
 CREATE TABLE userdata (
-  id serial,
+  id int not null auto_increment,
   userid varchar(25),
   name varchar(100),
   password text,
@@ -11,7 +11,7 @@ CREATE TABLE userdata (
 );
 
 CREATE TABLE user_profile (
-  id serial,
+  id int not null auto_increment,
   user_id integer,
   address text,
   email varchar(255),
@@ -20,20 +20,20 @@ CREATE TABLE user_profile (
 );
 
 CREATE TABLE roledata (
-  id serial,
+  id int not null auto_increment,
   name varchar(50),
   PRIMARY KEY (id)
 );
 
 CREATE TABLE accessdata (
-  id serial,
+  id int not null auto_increment,
   name varchar(255),
   type varchar(50),
   PRIMARY KEY (id)
 );
 
 CREATE TABLE user_role (
-  id serial,
+  id int not null auto_increment,
   user_id integer,
   role_id integer,
   PRIMARY KEY (id),
@@ -42,7 +42,7 @@ CREATE TABLE user_role (
 );
 
 CREATE TABLE role_access (
-  id serial,
+  id int not null auto_increment,
   role_id integer,
   access_id integer,
   PRIMARY KEY (id),
@@ -51,7 +51,7 @@ CREATE TABLE role_access (
 );
 
 CREATE TABLE user_access (
-  id serial,
+  id int not null auto_increment,
   user_id integer,
   access_id integer,
   PRIMARY KEY (id),
@@ -60,7 +60,7 @@ CREATE TABLE user_access (
 );
 
 CREATE TABLE event (
-  id serial,
+  id int not null auto_increment,
   user_id integer,
   application varchar(100),
   module varchar(100),
