@@ -71,6 +71,7 @@
             <?php 
               echo $T->navMenu(array(
                   'Home' => 'Home/index', 
+                  'Getting Started' => 'Home/started', 
                   'Downloads' => 'Home/download',
                   'Documentation' => 'Home/documentation',
                   'Support' => 'Home/support',

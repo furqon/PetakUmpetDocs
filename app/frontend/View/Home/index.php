@@ -5,9 +5,10 @@
       PetakUmpet is an open-source PHP application framework designed to provide structure and libraries 
       to help develop website and web-app quickly. 
     </p>
-    <p><strong>Main Features</strong>
+    <p><strong><icon class="glyphicon glyphicon-th"></icon> Main Features</strong>
       <ul>
         <li>PetakUmpet provides separation of development and design with MVC style</li>
+        <li>Default theme classes with Twitter's Bootstrap theme provided</li> 
         <li>Easy integration to external libraries</li>
         <li>Implemented Role-based access control for application development</li>   
         <li>Simple and extendable configuration, using php-class configuration</li>
