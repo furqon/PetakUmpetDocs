@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+	<meta name="robots" content="noindex">
+
+	<title>File Pager/TablePager.php</title>
+
+	<script type="text/javascript" src="resources/combined.js?4031327329"></script>
+	<script type="text/javascript" src="elementlist.js?3058850120"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-AppName.html">AppName<span></span></a>
+						<ul>
+				<li><a href="namespace-AppName.Form.html">Form</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li class="active"><a href="namespace-PetakUmpet.html">PetakUmpet<span></span></a>
+						<ul>
+				<li><a href="namespace-PetakUmpet.Application.html">Application</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.Bridge.html">Bridge</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.Database.html">Database<span></span></a>
+						<ul>
+				<li><a href="namespace-PetakUmpet.Database.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PetakUmpet.Form.html">Form<span></span></a>
+						<ul>
+				<li><a href="namespace-PetakUmpet.Form.Component.html">Component</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.Form.Field.html">Field</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PetakUmpet.Formatter.html">Formatter<span></span></a>
+						<ul>
+				<li><a href="namespace-PetakUmpet.Formatter.Form.html">Form</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.Formatter.Menu.html">Menu</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.Formatter.Report.html">Report</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-PetakUmpet.Pager.html">Pager</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.Validator.html">Validator</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-PetakUmpet.Pager.ColumnarQueryPager.html">ColumnarQueryPager</a></li>
+				<li><a href="class-PetakUmpet.Pager.ModalPager.html">ModalPager</a></li>
+				<li><a href="class-PetakUmpet.Pager.QueryPager.html">QueryPager</a></li>
+				<li class="active"><a href="class-PetakUmpet.Pager.TablePager.html">TablePager</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-PetakUmpet.Pager.html" title="Summary of PetakUmpet\Pager"><span>Namespace</span></a>
+			</li>
+			<li>
+				<a href="class-PetakUmpet.Pager.TablePager.html" title="Summary of PetakUmpet\Pager\TablePager"><span>Class</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<pre><code><span id="1" class="l"><a class="l" href="#1"> 1: </a><span class="xlang">&lt;?php</span>
+</span><span id="2" class="l"><a class="l" href="#2"> 2: </a>
+</span><span id="3" class="l"><a class="l" href="#3"> 3: </a><span class="php-keyword1">namespace</span> PetakUmpet\Pager;
+</span><span id="4" class="l"><a class="l" href="#4"> 4: </a>
+</span><span id="5" class="l"><a class="l" href="#5"> 5: </a><span class="php-keyword1">use</span> PetakUmpet\Request;
+</span><span id="6" class="l"><a class="l" href="#6"> 6: </a><span class="php-keyword1">use</span> PetakUmpet\Pager;
+</span><span id="7" class="l"><a class="l" href="#7"> 7: </a><span class="php-keyword1">use</span> PetakUmpet\Database\Accessor;
+</span><span id="8" class="l"><a class="l" href="#8"> 8: </a><span class="php-keyword1">use</span> PetakUmpet\Database\Schema;
+</span><span id="9" class="l"><a class="l" href="#9"> 9: </a>
+</span><span id="10" class="l"><a class="l" href="#10">10: </a><span class="php-keyword1">class</span> <a id="TablePager" href="#TablePager">TablePager</a> <span class="php-keyword1">extends</span> Pager {
+</span><span id="11" class="l"><a class="l" href="#11">11: </a>
+</span><span id="12" class="l"><a class="l" href="#12">12: </a>  <span class="php-keyword1">private</span> <span class="php-var"><a id="$tableName" href="#$tableName">$tableName</a></span>;
+</span><span id="13" class="l"><a class="l" href="#13">13: </a>  <span class="php-keyword1">private</span> <span class="php-var"><a id="$orderBy" href="#$orderBy">$orderBy</a></span>;
+</span><span id="14" class="l"><a class="l" href="#14">14: </a>  <span class="php-keyword1">private</span> <span class="php-var"><a id="$orderAsc" href="#$orderAsc">$orderAsc</a></span>;
+</span><span id="15" class="l"><a class="l" href="#15">15: </a>
+</span><span id="16" class="l"><a class="l" href="#16">16: </a>  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="___construct" href="#___construct">__construct</a>(Request <span class="php-var">$request</span>, <span class="php-var">$pagerRows</span>=<span class="php-keyword1">null</span>)
+</span><span id="17" class="l"><a class="l" href="#17">17: </a>  {
+</span><span id="18" class="l"><a class="l" href="#18">18: </a>    parent::__construct(<span class="php-var">$request</span>, <span class="php-var">$pagerRows</span>);
+</span><span id="19" class="l"><a class="l" href="#19">19: </a>    <span class="php-var">$this</span>-&gt;orderBy = <span class="php-quote">'id'</span>;
+</span><span id="20" class="l"><a class="l" href="#20">20: </a>    <span class="php-var">$this</span>-&gt;orderAsc = <span class="php-keyword1">true</span>;
+</span><span id="21" class="l"><a class="l" href="#21">21: </a>  }
+</span><span id="22" class="l"><a class="l" href="#22">22: </a>
+</span><span id="23" class="l"><a class="l" href="#23">23: </a>  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setOrderBy" href="#_setOrderBy">setOrderBy</a>(<span class="php-var">$value</span>, <span class="php-var">$asc</span>=<span class="php-keyword1">true</span>)
+</span><span id="24" class="l"><a class="l" href="#24">24: </a>  {
+</span><span id="25" class="l"><a class="l" href="#25">25: </a>    <span class="php-var">$this</span>-&gt;orderBy = <span class="php-var">$value</span>;
+</span><span id="26" class="l"><a class="l" href="#26">26: </a>    <span class="php-var">$this</span>-&gt;orderAsc = <span class="php-var">$asc</span>;
+</span><span id="27" class="l"><a class="l" href="#27">27: </a>  }
+</span><span id="28" class="l"><a class="l" href="#28">28: </a>
+</span><span id="29" class="l"><a class="l" href="#29">29: </a>  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_build" href="#_build">build</a>(<span class="php-var">$tableName</span>, <span class="php-var">$columns</span>=<span class="php-keyword1">array</span>())
+</span><span id="30" class="l"><a class="l" href="#30">30: </a>  {
+</span><span id="31" class="l"><a class="l" href="#31">31: </a>    <span class="php-var">$this</span>-&gt;tableName = <span class="php-var">$tableName</span>;
+</span><span id="32" class="l"><a class="l" href="#32">32: </a>
+</span><span id="33" class="l"><a class="l" href="#33">33: </a>    <span class="php-var">$schema</span> = <span class="php-keyword1">new</span> Schema(<span class="php-var">$tableName</span>);
+</span><span id="34" class="l"><a class="l" href="#34">34: </a>    <span class="php-var">$dba</span> = <span class="php-keyword1">new</span> Accessor(<span class="php-var">$tableName</span>, <span class="php-keyword1">null</span>, <span class="php-var">$schema</span>);
+</span><span id="35" class="l"><a class="l" href="#35">35: </a>
+</span><span id="36" class="l"><a class="l" href="#36">36: </a>    <span class="php-keyword1">if</span> (<span class="php-keyword2">count</span>(<span class="php-var">$columns</span>) == <span class="php-num">0</span>) {
+</span><span id="37" class="l"><a class="l" href="#37">37: </a>      <span class="php-var">$columns</span> = <span class="php-var">$schema</span>-&gt;getColumnNames();
+</span><span id="38" class="l"><a class="l" href="#38">38: </a>    }
+</span><span id="39" class="l"><a class="l" href="#39">39: </a>
+</span><span id="40" class="l"><a class="l" href="#40">40: </a>    <span class="php-var">$count</span> = <span class="php-var">$dba</span>-&gt;countPagerData(<span class="php-var">$this</span>-&gt;filter);
+</span><span id="41" class="l"><a class="l" href="#41">41: </a>
+</span><span id="42" class="l"><a class="l" href="#42">42: </a>    <span class="php-var">$this</span>-&gt;totalRows = <span class="php-var">$count</span>;
+</span><span id="43" class="l"><a class="l" href="#43">43: </a>    <span class="php-var">$this</span>-&gt;totalPage = <span class="php-keyword2">ceil</span>(<span class="php-var">$count</span>/<span class="php-var">$this</span>-&gt;pagerRows);
+</span><span id="44" class="l"><a class="l" href="#44">44: </a>
+</span><span id="45" class="l"><a class="l" href="#45">45: </a>    <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;page &gt; <span class="php-var">$this</span>-&gt;totalPage) <span class="php-var">$this</span>-&gt;page = <span class="php-var">$this</span>-&gt;totalPage;
+</span><span id="46" class="l"><a class="l" href="#46">46: </a>
+</span><span id="47" class="l"><a class="l" href="#47">47: </a>    <span class="php-var">$this</span>-&gt;setHeader(<span class="php-var">$columns</span>);
+</span><span id="48" class="l"><a class="l" href="#48">48: </a>
+</span><span id="49" class="l"><a class="l" href="#49">49: </a>    <span class="php-var">$data</span> = <span class="php-var">$dba</span>-&gt;findPagerData(<span class="php-var">$this</span>-&gt;page, <span class="php-var">$this</span>-&gt;pagerRows, <span class="php-var">$this</span>-&gt;filter, <span class="php-var">$this</span>-&gt;orderBy, <span class="php-var">$this</span>-&gt;orderAsc);
+</span><span id="50" class="l"><a class="l" href="#50">50: </a>
+</span><span id="51" class="l"><a class="l" href="#51">51: </a>    <span class="php-var">$this</span>-&gt;setPagerData(<span class="php-var">$data</span>);
+</span><span id="52" class="l"><a class="l" href="#52">52: </a>  }
+</span><span id="53" class="l"><a class="l" href="#53">53: </a>
+</span><span id="54" class="l"><a class="l" href="#54">54: </a>  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_headerCallback" href="#_headerCallback">headerCallback</a>(<span class="php-var">$headerData</span>)
+</span><span id="55" class="l"><a class="l" href="#55">55: </a>  {
+</span><span id="56" class="l"><a class="l" href="#56">56: </a>    <span class="php-keyword1">return</span> <span class="php-quote">'&lt;th&gt;ACTIONS&lt;/th&gt;'</span>;
+</span><span id="57" class="l"><a class="l" href="#57">57: </a>  }
+</span><span id="58" class="l"><a class="l" href="#58">58: </a>
+</span><span id="59" class="l"><a class="l" href="#59">59: </a>  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_rowCallback" href="#_rowCallback">rowCallback</a>(<span class="php-var">$rowData</span>)
+</span><span id="60" class="l"><a class="l" href="#60">60: </a>  {
+</span><span id="61" class="l"><a class="l" href="#61">61: </a>    <span class="php-var">$id</span> = <span class="php-var">$rowData</span>[<span class="php-quote">'id'</span>];
+</span><span id="62" class="l"><a class="l" href="#62">62: </a>
+</span><span id="63" class="l"><a class="l" href="#63">63: </a>    <span class="php-var">$editHref</span> = <span class="php-var">$this</span>-&gt;editAction . <span class="php-quote">'&amp;id='</span> . <span class="php-var">$id</span>;
+</span><span id="64" class="l"><a class="l" href="#64">64: </a>    <span class="php-var">$deleteHref</span> = <span class="php-var">$this</span>-&gt;deleteAction . <span class="php-quote">'&amp;id='</span> . <span class="php-var">$id</span>;
+</span><span id="65" class="l"><a class="l" href="#65">65: </a>    <span class="php-var">$pagerHref</span> = <span class="php-var">$this</span>-&gt;pagerAction;
+</span><span id="66" class="l"><a class="l" href="#66">66: </a>
+</span><span id="67" class="l"><a class="l" href="#67">67: </a>    <span class="php-var">$link</span> = <span class="php-quote">'&lt;td&gt;&lt;div class=&quot;btn-group btn-group-xs&quot;&gt;'</span> ;
+</span><span id="68" class="l"><a class="l" href="#68">68: </a>
+</span><span id="69" class="l"><a class="l" href="#69">69: </a>    <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;getInlineForm()) {
+</span><span id="70" class="l"><a class="l" href="#70">70: </a>      <span class="php-var">$link</span> .=  <span class="php-quote">&quot;&lt;a class=\&quot;btn btn-primary\&quot; href=\&quot;#\&quot; onclick=\&quot;</span><span class="php-var">$</span><span class="php-quote">('#crud-form').load('</span><span class="php-var">$editHref</span><span class="php-quote">');\&quot; &gt;&quot;</span>;
+</span><span id="71" class="l"><a class="l" href="#71">71: </a>    } <span class="php-keyword1">else</span> {
+</span><span id="72" class="l"><a class="l" href="#72">72: </a>      <span class="php-var">$link</span> .=  <span class="php-quote">&quot;&lt;a class=\&quot;btn btn-primary\&quot; href=\&quot;</span><span class="php-var">$editHref</span><span class="php-quote">\&quot; &gt;&quot;</span>;
+</span><span id="73" class="l"><a class="l" href="#73">73: </a>    }
+</span><span id="74" class="l"><a class="l" href="#74">74: </a>
+</span><span id="75" class="l"><a class="l" href="#75">75: </a>    <span class="php-var">$link</span> .=  <span class="php-quote">'&lt;span class=&quot;glyphicon glyphicon-edit&quot;&gt;&lt;/span&gt;&lt;/a&gt;&amp;nbsp;'</span>
+</span><span id="76" class="l"><a class="l" href="#76">76: </a>          . <span class="php-quote">'&lt;a class=&quot;btn btn-warning&quot; href=&quot;#&quot; '</span> 
+</span><span id="77" class="l"><a class="l" href="#77">77: </a>          . <span class="php-quote">&quot;onclick=\&quot;bootbox.confirm('Are you sure?', function(result) &quot;</span>
+</span><span id="78" class="l"><a class="l" href="#78">78: </a>          . <span class="php-quote">&quot;   { if (result) </span><span class="php-var">$</span><span class="php-quote">.ajax({url: '</span><span class="php-var">$deleteHref</span><span class="php-quote">', success: function() &quot;</span> 
+</span><span id="79" class="l"><a class="l" href="#79">79: </a>          . <span class="php-quote">&quot;       { </span><span class="php-var">$</span><span class="php-quote">('#pager').load('</span><span class="php-var">$pagerHref</span><span class="php-quote">'); } });  });\&quot;&gt; &quot;</span>
+</span><span id="80" class="l"><a class="l" href="#80">80: </a>          . <span class="php-quote">'&lt;span class=&quot;glyphicon glyphicon-remove&quot;&gt;&lt;/span&gt;&lt;/a&gt;&amp;nbsp;'</span>
+</span><span id="81" class="l"><a class="l" href="#81">81: </a>          . <span class="php-quote">'&lt;/div&gt;&lt;/td&gt;'</span>;
+</span><span id="82" class="l"><a class="l" href="#82">82: </a>
+</span><span id="83" class="l"><a class="l" href="#83">83: </a>    <span class="php-keyword1">return</span> <span class="php-var">$link</span>;
+</span><span id="84" class="l"><a class="l" href="#84">84: </a>  }
+</span><span id="85" class="l"><a class="l" href="#85">85: </a>
+</span><span id="86" class="l"><a class="l" href="#86">86: </a></span>}</code></pre>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

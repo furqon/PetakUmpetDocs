@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+	<meta name="robots" content="noindex">
+
+	<title>File Skeleton/app/AppName/UserdataApplication.php</title>
+
+	<script type="text/javascript" src="resources/combined.js?4031327329"></script>
+	<script type="text/javascript" src="elementlist.js?3058850120"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-AppName.html">AppName<span></span></a>
+						<ul>
+				<li><a href="namespace-AppName.Form.html">Form</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.html">PetakUmpet<span></span></a>
+						<ul>
+				<li><a href="namespace-PetakUmpet.Application.html">Application</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.Bridge.html">Bridge</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.Database.html">Database<span></span></a>
+						<ul>
+				<li><a href="namespace-PetakUmpet.Database.Driver.html">Driver</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PetakUmpet.Form.html">Form<span></span></a>
+						<ul>
+				<li><a href="namespace-PetakUmpet.Form.Component.html">Component</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.Form.Field.html">Field</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PetakUmpet.Formatter.html">Formatter<span></span></a>
+						<ul>
+				<li><a href="namespace-PetakUmpet.Formatter.Form.html">Form</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.Formatter.Menu.html">Menu</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.Formatter.Report.html">Report</a>
+						</li>
+							</ul></li>
+				<li><a href="namespace-PetakUmpet.Pager.html">Pager</a>
+						</li>
+				<li><a href="namespace-PetakUmpet.Validator.html">Validator</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-AppName.AdminApplication.html">AdminApplication</a></li>
+				<li><a href="class-AppName.AppUser.html">AppUser</a></li>
+				<li><a href="class-AppName.HomeApplication.html">HomeApplication</a></li>
+				<li><a href="class-AppName.LoginApplication.html">LoginApplication</a></li>
+				<li><a href="class-AppName.LogoutApplication.html">LogoutApplication</a></li>
+				<li><a href="class-AppName.TableMasterApplication.html">TableMasterApplication</a></li>
+				<li><a href="class-AppName.UserApplication.html">UserApplication</a></li>
+				<li class="active"><a href="class-AppName.UserdataApplication.html">UserdataApplication</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-AppName.html" title="Summary of AppName"><span>Namespace</span></a>
+			</li>
+			<li>
+				<a href="class-AppName.UserdataApplication.html" title="Summary of AppName\UserdataApplication"><span>Class</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<pre><code><span id="1" class="l"><a class="l" href="#1"> 1: </a><span class="xlang">&lt;?php</span>
+</span><span id="2" class="l"><a class="l" href="#2"> 2: </a>
+</span><span id="3" class="l"><a class="l" href="#3"> 3: </a><span class="php-keyword1">namespace</span> AppName;
+</span><span id="4" class="l"><a class="l" href="#4"> 4: </a>
+</span><span id="5" class="l"><a class="l" href="#5"> 5: </a><span class="php-keyword1">use</span> PetakUmpet\Application\xCrudApplication;
+</span><span id="6" class="l"><a class="l" href="#6"> 6: </a><span class="php-keyword1">use</span> PetakUmpet\Database\Accessor;
+</span><span id="7" class="l"><a class="l" href="#7"> 7: </a><span class="php-keyword1">use</span> PetakUmpet\Response;
+</span><span id="8" class="l"><a class="l" href="#8"> 8: </a><span class="php-keyword1">use</span> PetakUmpet\Form\Component\TableAdapterForm;
+</span><span id="9" class="l"><a class="l" href="#9"> 9: </a>
+</span><span id="10" class="l"><a class="l" href="#10">10: </a><span class="php-keyword1">class</span> <a id="UserdataApplication" href="#UserdataApplication">UserdataApplication</a> <span class="php-keyword1">extends</span> xCrudApplication {
+</span><span id="11" class="l"><a class="l" href="#11">11: </a>
+</span><span id="12" class="l"><a class="l" href="#12">12: </a>  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="___construct" href="#___construct">__construct</a>(\PetakUmpet\Process <span class="php-var">$process</span>, \PetakUmpet\Request <span class="php-var">$request</span>, \PetakUmpet\Session <span class="php-var">$session</span>, \PetakUmpet\Config <span class="php-var">$config</span>)
+</span><span id="13" class="l"><a class="l" href="#13">13: </a>  {
+</span><span id="14" class="l"><a class="l" href="#14">14: </a>    parent::__construct(<span class="php-var">$process</span>, <span class="php-var">$request</span>, <span class="php-var">$session</span>, <span class="php-var">$config</span>);
+</span><span id="15" class="l"><a class="l" href="#15">15: </a>
+</span><span id="16" class="l"><a class="l" href="#16">16: </a>    <span class="php-var">$this</span>-&gt;tableName = <span class="php-quote">'userdata'</span>;
+</span><span id="17" class="l"><a class="l" href="#17">17: </a>    <span class="php-var">$this</span>-&gt;columns = <span class="php-keyword1">array</span>(<span class="php-quote">'id'</span>, <span class="php-quote">'name'</span>, <span class="php-quote">'is_admin'</span>);
+</span><span id="18" class="l"><a class="l" href="#18">18: </a>
+</span><span id="19" class="l"><a class="l" href="#19">19: </a>    <span class="php-var">$this</span>-&gt;inlineForm = <span class="php-keyword1">false</span>;
+</span><span id="20" class="l"><a class="l" href="#20">20: </a>
+</span><span id="21" class="l"><a class="l" href="#21">21: </a>    <span class="php-comment">// parameter names in queries should be the same with relKey and relatedData keys in tabs array</span>
+</span><span id="22" class="l"><a class="l" href="#22">22: </a>    <span class="php-var">$rolesQuery</span> = <span class="php-quote">&quot;SELECT ur.id, r.name FROM user_role ur &quot;</span>
+</span><span id="23" class="l"><a class="l" href="#23">23: </a>        .<span class="php-quote">&quot;JOIN roledata r ON r.id = ur.role_id &quot;</span>
+</span><span id="24" class="l"><a class="l" href="#24">24: </a>        .<span class="php-quote">&quot;JOIN userdata u ON u.id = ur.user_id WHERE u.id = :user_id&quot;</span>;
+</span><span id="25" class="l"><a class="l" href="#25">25: </a>    <span class="php-var">$accessQuery</span> = <span class="php-quote">&quot;SELECT ra.id, a.name FROM role_access ra &quot;</span>
+</span><span id="26" class="l"><a class="l" href="#26">26: </a>        .<span class="php-quote">&quot;JOIN accessdata a ON ra.access_id = a.id &quot;</span>
+</span><span id="27" class="l"><a class="l" href="#27">27: </a>        .<span class="php-quote">&quot;JOIN user_role ur ON ur.role_id = ra.role_id &quot;</span>
+</span><span id="28" class="l"><a class="l" href="#28">28: </a>        .<span class="php-quote">&quot;JOIN userdata u ON u.id = ur.user_id WHERE u.id = :user_id&quot;</span>;
+</span><span id="29" class="l"><a class="l" href="#29">29: </a>
+</span><span id="30" class="l"><a class="l" href="#30">30: </a>    <span class="php-var">$this</span>-&gt;tabs = <span class="php-keyword1">array</span>(
+</span><span id="31" class="l"><a class="l" href="#31">31: </a>      <span class="php-quote">'roles'</span> =&gt; 
+</span><span id="32" class="l"><a class="l" href="#32">32: </a>        <span class="php-keyword1">array</span> (
+</span><span id="33" class="l"><a class="l" href="#33">33: </a>            <span class="php-quote">'name'</span> =&gt; <span class="php-quote">'Roles'</span>,
+</span><span id="34" class="l"><a class="l" href="#34">34: </a>            <span class="php-quote">'tableName'</span> =&gt; <span class="php-quote">'user_role'</span>,
+</span><span id="35" class="l"><a class="l" href="#35">35: </a>            <span class="php-quote">'query'</span> =&gt; <span class="php-var">$rolesQuery</span>,
+</span><span id="36" class="l"><a class="l" href="#36">36: </a>            <span class="php-quote">'columns'</span> =&gt; <span class="php-keyword1">array</span>(<span class="php-quote">'id'</span>, <span class="php-quote">'name'</span>),
+</span><span id="37" class="l"><a class="l" href="#37">37: </a>            <span class="php-quote">'relKey'</span> =&gt; <span class="php-quote">'user_id'</span>,
+</span><span id="38" class="l"><a class="l" href="#38">38: </a>            <span class="php-quote">'formColumns'</span> =&gt; <span class="php-keyword1">array</span>(<span class="php-quote">'id'</span>, <span class="php-quote">'user_id'</span>, <span class="php-quote">'role_id'</span>),
+</span><span id="39" class="l"><a class="l" href="#39">39: </a>          ),
+</span><span id="40" class="l"><a class="l" href="#40">40: </a>      <span class="php-quote">'access'</span> =&gt;
+</span><span id="41" class="l"><a class="l" href="#41">41: </a>        <span class="php-keyword1">array</span> (
+</span><span id="42" class="l"><a class="l" href="#42">42: </a>            <span class="php-quote">'name'</span> =&gt; <span class="php-quote">'Access'</span>,
+</span><span id="43" class="l"><a class="l" href="#43">43: </a>            <span class="php-quote">'tableName'</span> =&gt; <span class="php-quote">'role_access'</span>,
+</span><span id="44" class="l"><a class="l" href="#44">44: </a>            <span class="php-quote">'query'</span> =&gt; <span class="php-var">$accessQuery</span>,
+</span><span id="45" class="l"><a class="l" href="#45">45: </a>            <span class="php-quote">'columns'</span> =&gt; <span class="php-keyword1">array</span>(<span class="php-quote">'id'</span>, <span class="php-quote">'name'</span>),
+</span><span id="46" class="l"><a class="l" href="#46">46: </a>            <span class="php-quote">'relKey'</span> =&gt; <span class="php-quote">'user_id'</span>,
+</span><span id="47" class="l"><a class="l" href="#47">47: </a>          ),
+</span><span id="48" class="l"><a class="l" href="#48">48: </a>      );
+</span><span id="49" class="l"><a class="l" href="#49">49: </a>  }
+</span><span id="50" class="l"><a class="l" href="#50">50: </a>
+</span><span id="51" class="l"><a class="l" href="#51">51: </a>  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_configureForm" href="#_configureForm">configureForm</a>()
+</span><span id="52" class="l"><a class="l" href="#52">52: </a>  {
+</span><span id="53" class="l"><a class="l" href="#53">53: </a>    parent::configureForm();
+</span><span id="54" class="l"><a class="l" href="#54">54: </a>    <span class="php-var">$this</span>-&gt;form-&gt;setFieldOptions(<span class="php-keyword1">array</span>(
+</span><span id="55" class="l"><a class="l" href="#55">55: </a>      <span class="php-quote">'first_login'</span> =&gt; <span class="php-keyword1">array</span>(<span class="php-quote">'1'</span> =&gt; <span class="php-quote">'Yes'</span>, <span class="php-quote">'0'</span> =&gt; <span class="php-quote">'No'</span>),
+</span><span id="56" class="l"><a class="l" href="#56">56: </a>      <span class="php-quote">'is_admin'</span> =&gt; <span class="php-keyword1">array</span>(<span class="php-quote">'1'</span> =&gt; <span class="php-quote">'Yes'</span>, <span class="php-quote">'0'</span> =&gt; <span class="php-quote">'No'</span>),
+</span><span id="57" class="l"><a class="l" href="#57">57: </a>      ));
+</span><span id="58" class="l"><a class="l" href="#58">58: </a>  }
+</span><span id="59" class="l"><a class="l" href="#59">59: </a>
+</span><span id="60" class="l"><a class="l" href="#60">60: </a>}
+</span><span id="61" class="l"><a class="l" href="#61">61: </a></span></code></pre>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
