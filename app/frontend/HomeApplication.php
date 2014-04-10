@@ -8,7 +8,6 @@ class HomeApplication extends Application {
 
   public function indexAction()
   {
-    $this->request->setSubNavMenu(false);
     return $this->render();
   }
 
